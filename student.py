@@ -35,9 +35,14 @@ class Student(person):
         self.enrollments.append({"course_id": course_id})
     
     def unenroll(self, course_id: int) -> None:
-        if course_id not in self.enrollments:
+        enrollment_to_remove = None
+        for enrollment in self.enrollments:
+            if enrollment.get("course_id") == course_id:
+                enrollment_to_remove = enrollment
+                break
+        if enrollment_to_remove is None:
             raise ValueError(f"Student is not enrolled in course {course_id}")
-        self.enrollments.remove(course_id)    
+        self.enrollments.remove(enrollment_to_remove)
     
     def __repr__(self) -> str:
         return f"<{self.__class__.__name__} student id={self.id} name={self.name} email={self.email} age={self.age} year={self.year} enrollments={self.enrollments}>"

@@ -42,7 +42,7 @@ def password(password):
     return True
 
 def valid_age(age):
-    if 10 < age < 30:
+    if not 10 <= age <= 30:
         return False
     return True
 
@@ -52,6 +52,6 @@ def valid_year(year):
     return True
 
 def valid_grade(grade):
-    if 0 <= grade <= 100:
+    if not 0 <= grade <= 100:
         return False
     return True

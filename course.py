@@ -7,6 +7,7 @@ class Course:
     id: int
     title: str
     description: str
+    year : int
     instructor_id: Optional[int] = None
     roster: List[int] = field(default_factory=list)
     grades: Dict[int, float] = field(default_factory=dict)
@@ -45,6 +46,7 @@ class Course:
             "id": self.id,
             "title": self.title,
             "description": self.description,
+            "year": self.year,
             "instructor_id": self.instructor_id,
             "roster": self.roster,
             "grades": self.grades
